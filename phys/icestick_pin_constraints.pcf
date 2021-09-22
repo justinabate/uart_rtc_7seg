@@ -17,6 +17,7 @@ set_io o_board_led[4] 95
 
 # ----------------------------------------------------------
 # J1 - top 0.1" strip; reads high to low 119 downto 112, left to right
+# place 100R series resistors between these outputs and the LTC pins
 set_io o_drive_seg[0] 119 # Cathode A; LTC Pin 14
 set_io o_drive_seg[1] 118 # Cathode B; LTC Pin 16
 set_io o_drive_seg[2] 117 # Cathode C; LTC Pin 13
@@ -38,18 +39,21 @@ set_io o_drive_seg[6] 113 # Cathode G; LTC Pin 15
 # set_io 81 # Header pin 4; PIO1_05
 # set_io 87 # Header pin 7; PIO1_06
 # set_io 88 # Header pin 8; PIO1_07
-set_io o_uart_txd 90; # Header pin 9; PIO1_08
+set_io o_uart_txd 90;p # Header pin 9; PIO1_08
 set_io i_uart_rxd 91 -pullup yes; # Header pin 10; PIO1_09
 
 # ----------------------------------------------------------
 # J3 - bot 0.1" strip; reads low to high, left to right
 
 set_io i_rst_n 44 -pullup yes 
-
 # set_io  45 
 # set_io  47 
 # set_io  48 
-set_io o_drive_dig[0] 56 # Common Anode Digit 1; LTC Pin 1 
-set_io o_drive_dig[1] 60 # Common Anode Digit 2; LTC Pin 2
-set_io o_drive_dig[2] 61 # Common Anode Digit 3; LTC Pin 6 
-set_io o_drive_dig[3] 62 # Common Anode Digit 4; LTC Pin 8 
+
+# wire these to 470R series resistors
+# resistors should wire to the base of NPN BJTs
+# BJT collector wires to 3V3; emitter wires to pins 1,2,6,8
+set_io o_drive_dig[0] 56 # Common Anode Digit 1; LTC Pin 1;   
+set_io o_drive_dig[1] 60 # Common Anode Digit 2; LTC Pin 2;  
+set_io o_drive_dig[2] 61 # Common Anode Digit 3; LTC Pin 6;   
+set_io o_drive_dig[3] 62 # Common Anode Digit 4; LTC Pin 8;   
