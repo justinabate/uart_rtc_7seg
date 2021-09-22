@@ -2,12 +2,17 @@
 #project files
 # add_file -verilog -lib work "../hdl/BaudTickGen.v"
 # add_file -verilog -lib work "../hdl/uart_rx.v"
+add_file -verilog -lib work "../hdl/rtcbare.v"
 add_file -vhdl -lib work "../hdl/reset.vhd"
+add_file -vhdl -lib work "../hdl/mux_4to1.vhd"
 add_file -vhdl -lib work "../hdl/slv_to_7sv.vhd"
+add_file -vhdl -lib work "../hdl/demux_1to4.vhd"
 add_file -vhdl -lib work "../hdl/ltc_4627jr_driver.vhd"
 add_file -vhdl -lib work "../hdl/uart_rx.vhd"
+add_file -vhdl -lib work "../hdl/uart8_to_wb24.vhd"
 add_file -vhdl -lib work "../hdl/top.vhd"
 add_file -constraint -lib work "../phys/icestick_timing_constraints.sdc"
+
 
 #implementation: "impl_0"
 impl -add impl_0 -type fpga

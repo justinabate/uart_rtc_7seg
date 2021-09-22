@@ -1,47 +1,67 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /led_breathing_tb/DUT/clk
-add wave -noupdate /led_breathing_tb/DUT/rst_n
-add wave -noupdate /led_breathing_tb/DUT/rst
-add wave -noupdate -radix unsigned -childformat {{/led_breathing_tb/DUT/cnt(15) -radix unsigned} {/led_breathing_tb/DUT/cnt(14) -radix unsigned} {/led_breathing_tb/DUT/cnt(13) -radix unsigned} {/led_breathing_tb/DUT/cnt(12) -radix unsigned} {/led_breathing_tb/DUT/cnt(11) -radix unsigned} {/led_breathing_tb/DUT/cnt(10) -radix unsigned} {/led_breathing_tb/DUT/cnt(9) -radix unsigned} {/led_breathing_tb/DUT/cnt(8) -radix unsigned} {/led_breathing_tb/DUT/cnt(7) -radix unsigned} {/led_breathing_tb/DUT/cnt(6) -radix unsigned} {/led_breathing_tb/DUT/cnt(5) -radix unsigned} {/led_breathing_tb/DUT/cnt(4) -radix unsigned} {/led_breathing_tb/DUT/cnt(3) -radix unsigned} {/led_breathing_tb/DUT/cnt(2) -radix unsigned} {/led_breathing_tb/DUT/cnt(1) -radix unsigned} {/led_breathing_tb/DUT/cnt(0) -radix unsigned}} -subitemconfig {/led_breathing_tb/DUT/cnt(15) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(14) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(13) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(12) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(11) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(10) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(9) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(8) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(7) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(6) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(5) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(4) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(3) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(2) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(1) {-height 30 -radix unsigned} /led_breathing_tb/DUT/cnt(0) {-height 30 -radix unsigned}} /led_breathing_tb/DUT/cnt
-add wave -noupdate /led_breathing_tb/DUT/led_5
-add wave -noupdate -format Analog-Step -height 256 -max 255.0 -radix unsigned /led_breathing_tb/DUT/duty_cycle
-add wave -noupdate -expand -group SINE_ROM /led_breathing_tb/DUT/SINE_ROM/clk
-add wave -noupdate -expand -group SINE_ROM /led_breathing_tb/DUT/SINE_ROM/addr
-add wave -noupdate -expand -group SINE_ROM /led_breathing_tb/DUT/SINE_ROM/data
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/clk
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/rst_n
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/rst
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/sreg
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/clk
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/rst_n
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/rst
-add wave -noupdate -group RESET /led_breathing_tb/DUT/RESET/sreg
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/clk
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/rst
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/duty_cycle
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/pwm_out
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/pwm_cnt
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/clk_cnt
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/clk
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/rst
-add wave -noupdate -group PWM /led_breathing_tb/DUT/PWM/duty_cycle
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/pwm_out
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/pwm_cnt
-add wave -noupdate -group PWM -radix unsigned /led_breathing_tb/DUT/PWM/clk_cnt
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/clk
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/rst
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/count_enable
-add wave -noupdate -group COUNTER -radix unsigned /led_breathing_tb/DUT/COUNTER/counter
-add wave -noupdate -group COUNTER -radix unsigned /led_breathing_tb/DUT/COUNTER/counter_i
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/clk
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/rst
-add wave -noupdate -group COUNTER /led_breathing_tb/DUT/COUNTER/count_enable
-add wave -noupdate -group COUNTER -radix unsigned /led_breathing_tb/DUT/COUNTER/counter
-add wave -noupdate -group COUNTER -radix unsigned /led_breathing_tb/DUT/COUNTER/counter_i
+add wave -noupdate /tb/i_clk
+add wave -noupdate /tb/w_rst
+add wave -noupdate /tb/r_pps
+add wave -noupdate -radix hexadecimal -radixshowbase 1 /tb/r_pps_cntr
+add wave -noupdate -expand -group u8_to_wb24 /tb/inst_uart8_to_wb24/i_clk
+add wave -noupdate -expand -group u8_to_wb24 /tb/inst_uart8_to_wb24/i_rst
+add wave -noupdate -expand -group u8_to_wb24 -radix hexadecimal /tb/inst_uart8_to_wb24/i_uart_byte
+add wave -noupdate -expand -group u8_to_wb24 /tb/inst_uart8_to_wb24/i_uart_byte_vld
+add wave -noupdate -expand -group u8_to_wb24 -radix unsigned /tb/inst_uart8_to_wb24/idx
+add wave -noupdate -expand -group u8_to_wb24 -radix hexadecimal /tb/inst_uart8_to_wb24/o_data
+add wave -noupdate -expand -group u8_to_wb24 /tb/inst_uart8_to_wb24/o_data_vld
+add wave -noupdate -expand -group u8_to_wb24 /tb/inst_uart8_to_wb24/o_wr
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/bcd_clock
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/carry
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/i_clk
+add wave -noupdate -expand -group rtc -radix hexadecimal /tb/inst_rtcbare/i_data
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/i_pps
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/i_reset
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/i_valid
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/i_wr
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/next_clock
+add wave -noupdate -expand -group rtc -radix hexadecimal /tb/inst_rtcbare/o_data
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/o_ppd
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/o_vld
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/OPT_PREVALIDATED_INPUT
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/pre_bcd_clock
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/pre_ppd
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/pre_valid
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/suppress_count
+add wave -noupdate -expand -group rtc /tb/inst_rtcbare/suppressed
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/i_clk
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/i_rst
+add wave -noupdate -expand -group mux -radix hexadecimal /tb/inst_mux_4to1/i_d0
+add wave -noupdate -expand -group mux -radix hexadecimal /tb/inst_mux_4to1/i_d1
+add wave -noupdate -expand -group mux -radix hexadecimal /tb/inst_mux_4to1/i_d2
+add wave -noupdate -expand -group mux -radix hexadecimal /tb/inst_mux_4to1/i_d3
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/i_dvld
+add wave -noupdate -expand -group mux -radix hexadecimal /tb/inst_mux_4to1/o_q
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/o_dvld
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/o_sel
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/r_toggle
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/r_sel
+add wave -noupdate -expand -group mux /tb/inst_mux_4to1/r_vld
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/i_clk
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/i_rst
+add wave -noupdate -expand -group slv_to_7sv -radix hexadecimal /tb/inst_slv_to_7sv/i_slv
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/i_slv_vld
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/o_7sv
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/o_7sv_vld
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/r_7sv
+add wave -noupdate -expand -group slv_to_7sv /tb/inst_slv_to_7sv/r_7sv_vld
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/i_clk
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/i_rst
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/i_d
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/i_sel
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/o_q0
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/o_q1
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/o_q2
+add wave -noupdate -expand -group demux /tb/inst_demux_1to4/o_q3
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 3} {483890000000 fs} 0}
-quietly wave cursor active 1
+WaveRestoreCursors {{Cursor 3} {1000000150666664 fs} 0} {{Cursor 2} {166666666 fs} 0}
+quietly wave cursor active 2
 configure wave -namecolwidth 210
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -56,4 +76,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits us
 update
-WaveRestoreZoom {0 fs} {1050 us}
+WaveRestoreZoom {999937799236892 fs} {1000078898161641 fs}

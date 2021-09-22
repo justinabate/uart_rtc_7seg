@@ -21,7 +21,7 @@ architecture rtl of slv_to_7sv is
 
 begin  			
 
-	p_numeric_ascii_to_7sv : process(i_clk) begin
+	p_numeric_to_7sv : process(i_clk) begin
         if rising_edge(i_clk) then
             if (i_rst = '1') then
                 r_7sv <= (others => '0');
@@ -31,16 +31,16 @@ begin
                     r_7sv_vld <= '1';
 
                     case i_slv is
-                        when x"30" => r_7sv <= "0111111"; -- G
-                        when x"31" => r_7sv <= "0000110"; -- B, C
-                        when x"32" => r_7sv <= "1011011"; -- A, B, D, E, G, 
-                        when x"33" => r_7sv <= "1001111";
-                        when x"34" => r_7sv <= "1100110";
-                        when x"35" => r_7sv <= "1101101";
-                        when x"36" => r_7sv <= "1111101";
-                        when x"37" => r_7sv <= "0000111";
-                        when x"38" => r_7sv <= "1111111";
-                        when x"39" => r_7sv <= "1101111";
+                        when x"00" => r_7sv <= "0111111"; -- G
+                        when x"01" => r_7sv <= "0000110"; -- B, C
+                        when x"02" => r_7sv <= "1011011"; -- A, B, D, E, G, 
+                        when x"03" => r_7sv <= "1001111";
+                        when x"04" => r_7sv <= "1100110";
+                        when x"05" => r_7sv <= "1101101";
+                        when x"06" => r_7sv <= "1111101";
+                        when x"07" => r_7sv <= "0000111";
+                        when x"08" => r_7sv <= "1111111";
+                        when x"09" => r_7sv <= "1101111";
                         -- when x"A" => r_7sv <= "1110111";
                         -- when x"B" => r_7sv <= "1111100";
                         -- when x"C" => r_7sv <= "0111001";

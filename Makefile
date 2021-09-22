@@ -120,14 +120,17 @@ help:
 sim: clean
 	@export PATH=$(VSIM_DIR):$$PATH
 	@export LM_LICENSE_FILE=$(LM_LICENSE_FILE)
-	@vcom -work work hdl/reset.vhd
-	@vcom -work work hdl/pwm.vhd
-	@vcom -work work hdl/counter.vhd
-	@vcom -work work hdl/sine_rom.vhd
-	@vcom -work work hdl/bram_two_port_simple.vhd
-	@vcom -work work hdl/led_breathing.vhd
-	@vcom -work work hdl/led_breathing_tb.vhd
-	@vsim work.led_breathing_tb -t 1fs -do src/run.do
+#	@vcom -work work hdl/reset.vhd
+	@vcom -work work hdl/uart8_to_wb24.vhd
+	@vlog -work work hdl/rtcbare.v
+	@vcom -work work hdl/mux_4to1.vhd
+	@vcom -work work hdl/slv_to_7sv.vhd
+	@vcom -work work hdl/demux_1to4.vhd
+#	@vcom -work work hdl/ltc_4627jr_driver.vhd
+#	@vcom -work work hdl/uart_rx.vhd
+#	@vcom -work work hdl/top.vhd
+	@vcom -work work hdl/tb.vhd
+	@vsim work.tb -t 1fs -do src/run.do
 
 
 # Run icecube2 synthesis and implementation

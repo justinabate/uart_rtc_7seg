@@ -23,8 +23,8 @@ entity uart_rx is
         i_clk       : in  std_logic;
         i_rst       : in  std_logic;
         i_rxd       : in  std_logic;
-        o_rx_vld    : out std_logic;
-        o_rx_byte   : out std_logic_vector(7 downto 0)
+        o_rx_byte   : out std_logic_vector(7 downto 0);
+        o_rx_vld    : out std_logic
     );
 end uart_rx;
  
